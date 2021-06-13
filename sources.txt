@@ -1,0 +1,9 @@
+Pmod AD2 VHDL library:
+https://forum.digikey.com/t/adc-ad7991-pmod-controller-vhdl/12895
+https://forum.digikey.com/t/i2c-master-vhdl/12797
+https://www.analog.com/media/en/technical-documentation/data-sheets/AD7991_7995_7999.pdf
+
+EPP control and general information:
+http://as6edriver.sourceforge.net/Parallel-Port-Programming-HOWTO/epp.html
+http://wearcam.org/seatsale/programs/www.beyondlogic.org/epp/epp.htm#1
+https://tldp.org/HOWTO/IO-Port-Programming-6.html
