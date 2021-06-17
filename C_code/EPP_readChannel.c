@@ -94,17 +94,19 @@ int main(int argc, char **argv) {
 
   			// Read data
 			unsigned char valueRead=inb(BASE);
-			printf("Dataport value:%d\n", valueRead);
+			usleep(usecs);
+			//printf("Dataport value:%d\n", valueRead);
 			if(combineValue==0) {
 				word_16_bit_buffer = valueRead; 	//Store what is written on data pins
 				combineValue = 1;		//Indicate next transaction will form the full 16-bit word 
 				control = 0x24; // REG: 0010 0100 -> LINE: xxxx 1111
-  				outb((unsigned char)control, CONTROLPORT);			
+  				outb((unsigned char)control, CONTROLPORT);
+							
 			}
 			else{
 				readValues[sample_count] = (word_16_bit_buffer<<8)+valueRead; //Shifts present data and stores next byte
   				combineValue = 0;
-				printf("%d\n", (int)readValues[sample_count]);
+				//printf("%d\n", (int)readValues[sample_count]);
 				sample_count++; //Increment buffer_count 
 				//End the transaction, setting strobe high again
 				control = 0x24; // REG: 0010 0100 -> LINE: xxxx 1111
@@ -126,7 +128,8 @@ int main(int argc, char **argv) {
 	for(int i = 0; i < no_of_16_bit_samples-1; i++) {		//Write the values to the CSV. This takes ~200us.
 		fprintf(fpt,"%d\n", readValues[i]);
 	}
-	fprintf(fpt,"%d", readValues[no_of_16_bit_samples]); //To prevent an error where a new line is written
+	printf("Last value: %d\n", readValues[no_of_16_bit_samples-1]);
+	fprintf(fpt,"%d", readValues[no_of_16_bit_samples-1]); //To prevent an error where a new line is written
 	fclose(fpt); //close the file
 	double writeCSV_time_taken = ((double)writeCSV_t)/CLOCKS_PER_SEC; // Measured in seconds
 	printf("Time taken to write to the CSV: %f\n", writeCSV_time_taken);

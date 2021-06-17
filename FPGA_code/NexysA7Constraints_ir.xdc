@@ -1,4 +1,4 @@
-## This file is a general .xdc for the Nexys A7-100T
+## This file is the .xdc for the Nexys A7-100T top_ir_receiver.v module
 ## To use it in a project:
 ## - uncomment the lines corresponding to used pins
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
@@ -118,9 +118,9 @@ set_property -dict { PACKAGE_PIN H16   IOSTANDARD LVCMOS33 } [get_ports { pp_wai
 ##Pmod Header JC
 
 #set_property -dict { PACKAGE_PIN K1    IOSTANDARD LVCMOS33 } [get_ports { JC[1] }]; #IO_L23N_T3_35 Sch=jc[1]
-set_property -dict { PACKAGE_PIN F6    IOSTANDARD LVCMOS33 } [get_ports { ch3_ir_input }]; #IO_L19N_T3_VREF_35 Sch=jc[2]
-set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 } [get_ports { ch1_ir_input }]; #IO_L22N_T3_35 Sch=jc[3]
-set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 } [get_ports { ch2_ir_input }]; #IO_L19P_T3_35 Sch=jc[4]
+set_property -dict { PACKAGE_PIN F6    IOSTANDARD LVCMOS33 } [get_ports { ch3_ir_input }]; #IO_L19N_T3_VREF_35 Sch=jc[2], 40khz
+set_property -dict { PACKAGE_PIN J2    IOSTANDARD LVCMOS33 } [get_ports { ch1_ir_input }]; #IO_L22N_T3_35 Sch=jc[3], 38khz
+set_property -dict { PACKAGE_PIN G6    IOSTANDARD LVCMOS33 } [get_ports { ch2_ir_input }]; #IO_L19P_T3_35 Sch=jc[4], 36khz
 #set_property -dict { PACKAGE_PIN E7    IOSTANDARD LVCMOS33 } [get_ports { JC[7] }]; #IO_L6P_T0_35 Sch=jc[7]
 #set_property -dict { PACKAGE_PIN J3    IOSTANDARD LVCMOS33 } [get_ports { JC[8] }]; #IO_L22P_T3_35 Sch=jc[8]
 #set_property -dict { PACKAGE_PIN J4    IOSTANDARD LVCMOS33 } [get_ports { JC[9] }]; #IO_L21P_T3_DQS_35 Sch=jc[9]

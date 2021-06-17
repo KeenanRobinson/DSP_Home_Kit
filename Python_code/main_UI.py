@@ -98,7 +98,7 @@ class DSPHomeKit(tk.Tk): #Inherit tk.Tk
 
             frame.grid(row=0, column=0, sticky="nsew")
 
-        self.show_frame(GraphPage)
+        self.show_frame(StartPage)
 
     def show_frame(self, cont): #cont = container
 
@@ -340,6 +340,9 @@ class GraphPage(tk.Frame): #inherit everything from the frame
                 data = fpgaFileHandler.interpretAsDigitalCSV(self.filename)
             a.clear()
             a.plot(data[1], data[2])
+            a.set_xlabel("Time (seconds)")
+            a.set_ylabel("Binary value")
+            graphFigure.suptitle("Recorded channel data")  # Read data
             #print(data)
             #print(data[1])
             canvas.draw()

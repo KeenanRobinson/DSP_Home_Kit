@@ -166,13 +166,13 @@ EPP_controller EPP(
 //********************Channel 1 Module instantiations********************
 // Digital sampling module
 sampling_Channel #(             //Channel configuration parameters - CHANGE THESE ACCORDING TO REQUIREMENTS
-    .NO_OF_SAMPLES(50000),
+    .NO_OF_SAMPLES(100000),
     .CLK_DIV(100),
     .DATA_WIDTH(16),
-    .DATA_DEPTH(3125),
-    .ADDRESS_SIZE(12),
-    .ALMOST_EMPTY_THRESH(625),
-    .ALMOST_FULL_THRESH(2500)
+    .DATA_DEPTH(6250),
+    .ADDRESS_SIZE(13),
+    .ALMOST_EMPTY_THRESH(1250),
+    .ALMOST_FULL_THRESH(5000)
 ) 
 channel1 (
     .clk(clk),
@@ -210,13 +210,13 @@ digital_sampler_converter IR1_channel(
 //********************Channel 2 Module instantiations********************
 // Digital sampling module
 sampling_Channel #(             //Channel configuration parameters - CHANGE THESE ACCORDING TO REQUIREMENTS
-    .NO_OF_SAMPLES(50000),
+    .NO_OF_SAMPLES(100000),
     .CLK_DIV(100),
     .DATA_WIDTH(16),
-    .DATA_DEPTH(3125),
-    .ADDRESS_SIZE(12),
-    .ALMOST_EMPTY_THRESH(625),
-    .ALMOST_FULL_THRESH(2500)
+    .DATA_DEPTH(6250),
+    .ADDRESS_SIZE(13),
+    .ALMOST_EMPTY_THRESH(1250),
+    .ALMOST_FULL_THRESH(5000)
 ) 
 channel2 (
     .clk(clk),
@@ -254,13 +254,13 @@ digital_sampler_converter IR2_channel(
 //********************Channel 3 Module instantiations********************
 // Digital sampling module
 sampling_Channel #(             //Channel configuration parameters - CHANGE THESE ACCORDING TO REQUIREMENTS
-    .NO_OF_SAMPLES(50000),
+    .NO_OF_SAMPLES(100000),
     .CLK_DIV(100),
     .DATA_WIDTH(16),
-    .DATA_DEPTH(3125),
-    .ADDRESS_SIZE(12),
-    .ALMOST_EMPTY_THRESH(625),
-    .ALMOST_FULL_THRESH(2500)
+    .DATA_DEPTH(6250),
+    .ADDRESS_SIZE(13),
+    .ALMOST_EMPTY_THRESH(1250),
+    .ALMOST_FULL_THRESH(5000)
 ) 
 channel3 (
     .clk(clk),

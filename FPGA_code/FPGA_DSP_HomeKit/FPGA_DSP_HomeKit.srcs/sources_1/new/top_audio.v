@@ -44,7 +44,11 @@ module top_audio(
     //output wire w_ch1_sampleClock,
     //output wire w_ch1_trigger
     input wire sw0,
+    input wire sw1,
+    input wire sw2,
+    input wire startRecording,
     output wire [11:0] fromI2C
+    
 );
 //Due to the layout of the external circuitry, pp_wait has to be inverted 
 wire pp_wait;
@@ -91,6 +95,7 @@ wire ch1_fifo_full;
 wire ch1_fifo_empty;
 wire ch1_samplingEnable;
 wire [15:0] ch1_sampler_output;
+//wire [11:0] fromI2C;
 
 //********************Channel 1 Configuration End********************
 
@@ -119,18 +124,20 @@ EPP_controller EPP(
     /*.w_state(w_state), 
     .w_dataCount(w_dataCount),
     .w_writtenData(w_writtenData)*/
-    .sw0(sw0)
+    .sw0(sw0),
+    .sw1(sw1),
+    .sw2(sw2)
 );
 
 // Analogue sampling module
 sampling_Channel #(             //Channel configuration parameters - CHANGE THESE ACCORDING TO REQUIREMENTS
-    .NO_OF_SAMPLES(80000),
-    .CLK_DIV(12500),
-    .DATA_WIDTH(16),
-    .DATA_DEPTH(80000),
-    .ADDRESS_SIZE(17),
-    .ALMOST_EMPTY_THRESH(16000),
-    .ALMOST_FULL_THRESH(64000)
+    .NO_OF_SAMPLES(441000),
+.CLK_DIV(2268),
+.DATA_WIDTH(16),
+.DATA_DEPTH(441000),
+.ADDRESS_SIZE(19),
+.ALMOST_EMPTY_THRESH(88200),
+.ALMOST_FULL_THRESH(352800)
 ) 
 channel1 (
     .clk(clk),
@@ -153,13 +160,13 @@ channel1 (
     .fifo_empty(ch1_fifo_empty)
 );
 //Prefacing module/IO  Handler
-analog_sampler_converter IR1_channel(
+analog_sampler_converter channel1_sampler(
     .clk_100MHz(clk),
     .reset(ch1_reset),
     .clk_sampling(ch1_sampleClock),             //input sampling clock
     .samplingEnable(ch1_samplingEnable),        //input to start sampling
-    .writeEnable(ch1_write_enable),                  //Signals to the sampling_channel memory buffer to write data
-    .output_data_stream(ch1_sampler_output),     //16 bit output from digital sampler
+    .writeEnable(ch1_write_enable),             //Signals to the sampling_channel memory buffer to write data
+    .output_data_stream(ch1_sampler_output),    //16 bit output from digital sampler
     .scl(scl),
     .sda(sda),
     .fromI2C(fromI2C)
@@ -219,7 +226,7 @@ end
 // an onboard switch is responsible for triggering the recording, sw0.
 
 always@(posedge clk) begin
-    if(sw0==0) begin //if switch is pulled low, start recording
+    if(startRecording==0) begin //if switch is pulled low, start recording
         trigger <= 1;
     end
     else trigger <= 0;
@@ -231,4 +238,5 @@ end
 //DEBUGGING WIRES - comment out or remove before synthesis
 //assign w_ch1_sampleClock = ch1_sampleClock;
 //assign w_ch1_trigger = ch1_trigger;
+//assign fromI2C_ = ch1_sampler_output[11:0];
 endmodule

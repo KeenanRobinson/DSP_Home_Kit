@@ -35,8 +35,10 @@ module analog_sampler_converter(
     inout wire scl,
     inout wire sda,
     output wire [11:0] fromI2C
+    
     //DEBUGGING
     //output wire w_cState
+    //input wire [11:0] testing
 );
 //Internal registers
 reg r_samplingEnable        = 0;

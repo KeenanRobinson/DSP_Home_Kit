@@ -76,11 +76,13 @@ always@(posedge clk) begin
         sampleClock <= 0;   //reset sampleClock to LOW
     end
     else if(r_startSampling) begin
+        clockCount <= clockCount+1;
         if(clockCount >= CLK_DIV-1) begin
             clockCount  <= 0;
             sampleClock <= ~sampleClock;
-        end
-        else clockCount <= clockCount+1;
+        end 
+        else sampleClock <= (clockCount<CLK_DIV/2) ? 1'b1:1'b0;
+        
     end
 end
 

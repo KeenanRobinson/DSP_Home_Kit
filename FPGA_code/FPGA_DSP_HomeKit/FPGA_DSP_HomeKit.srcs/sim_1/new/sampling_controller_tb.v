@@ -39,7 +39,7 @@ wire w_channelEnable;
 wire w_startSampling;
 //Test parameters:
 parameter NO_OF_SAMPLES = 5;
-parameter CLK_DIV = 5;
+parameter CLK_DIV = 10;
 
 sampling_controller #(
     .NO_OF_SAMPLES(NO_OF_SAMPLES),

@@ -1,0 +1,40 @@
+Test :1
+Time taken: 0.412150
+Time to write CSV: 0.413408
+
+Test :2
+Time taken: 0.407490
+Time to write CSV: 0.408581
+
+Test :3
+Time taken: 0.411065
+Time to write CSV: 0.412163
+
+Test :4
+Time taken: 0.411791
+Time to write CSV: 0.412870
+
+Test :5
+Time taken: 0.408548
+Time to write CSV: 0.409728
+
+Test :6
+Time taken: 0.407493
+Time to write CSV: 0.408473
+
+Test :7
+Time taken: 0.419537
+Time to write CSV: 0.420597
+
+Test :8
+Time taken: 0.411563
+Time to write CSV: 0.412622
+
+Test :9
+Time taken: 0.407885
+Time to write CSV: 0.408936
+
+Test :10
+Time taken: 405817
+Time to write CSV: 0.406902 
+
