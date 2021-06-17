@@ -94,6 +94,7 @@ initial begin
 
     #5;
     #`clk_period;
+    #150;
     
     pp_nReset = 1;
     #`clk_period;
@@ -155,7 +156,7 @@ initial begin
     //There should be a pulse to the FIFO memory, dataCount should change to 1 and the data
     //should be the first byte
     
-    #1000                   //Delay by arbitrary amount
+    #250                  //Delay by arbitrary amount
     
     pp_write = 1;           //Read operation
     pp_nDataStrobe = 0;     //Data operation
@@ -163,7 +164,7 @@ initial begin
     pp_nDataStrobe = 1;     //Assuming the PC acknowledges the wait signal being asserted
    //There should be no pulse to the FIFO memory, dataCount should change to 0 and the data
     //should be the last byte
-    #1000                   //Delay by arbitrary amount
+    #1000                  //Delay by arbitrary amount
 //////////////////////////////////////////////////////////////////////////////////
 
     //Test 4: Data write

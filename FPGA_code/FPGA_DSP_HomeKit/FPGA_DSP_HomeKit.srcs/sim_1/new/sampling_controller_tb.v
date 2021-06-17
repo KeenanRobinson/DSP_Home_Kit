@@ -27,16 +27,16 @@ module sampling_controller_tb;
 
 reg clk=0;                     //Input clock 100MHz
 reg reset;                   //Restarts the channel, clearing counter
-reg channelEnable;           //Enables the channel. Disabling it prevents data recording.
+//reg channelEnable;           //Enables the channel. Disabling it prevents data recording.
 reg trigger;                 //While this is high, begin sampling
 wire done;                    //Indicates whether the channel has reached max sample number
 wire sampleClock;             //This indicates when the data should be collected.
     //Debugging
-wire [31:0] w_clockCount;
-wire [31:0] w_sampleCount;
-wire w_trigger;
-wire w_channelEnable;
-wire w_startSampling;
+//wire [31:0] w_clockCount;
+//wire [31:0] w_sampleCount;
+//wire w_trigger;
+//wire w_channelEnable;
+//wire w_startSampling;
 //Test parameters:
 parameter NO_OF_SAMPLES = 5;
 parameter CLK_DIV = 10;
@@ -51,13 +51,13 @@ uut(
     //.channelEnable(channelEnable),           //Enables the channel. Disabling it prevents data recording.
     .trigger(trigger),                 //While this is high, begin sampling
     .done(done),                    //Indicates whether the channel has reached max sample number
-    .sampleClock(sampleClock),             //This indicates when the data should be collected.
+    .sampleClock(sampleClock)             //This indicates when the data should be collected.
     //Debugging
-    .w_clockCount(w_clockCount),
-    .w_sampleCount(w_sampleCount),
-    .w_trigger(w_trigger),
-    .w_channelEnable(w_channelEnable),
-    .w_startSampling(w_startSampling)
+    //.w_clockCount(w_clockCount),
+    //.w_sampleCount(w_sampleCount),
+    //.w_trigger(w_trigger),
+    //.w_channelEnable(w_channelEnable),
+    //.w_startSampling(w_startSampling)
 );
 
 /*
@@ -89,10 +89,10 @@ initial begin
     for(k = 0; k < 10; k=k+1) #`clk_period;
     
     //Reset = 0                    
-    reset = 0;                   
+    //reset = 0;                   
     //channelEnable = 0;           
-    trigger = 0;
-    for(k = 0; k < 10; k=k+1) #`clk_period;
+    //trigger = 0;
+    //for(k = 0; k < 10; k=k+1) #`clk_period;
     
     //trigger = 1                 
     reset = 0;                   
@@ -107,9 +107,9 @@ initial begin
     for(k = 0; k < 10; k=k+1) #`clk_period;
     
     //channelEnable = 1                    
-    reset = 0;                   
+    //reset = 0;                   
     //channelEnable = 1;           
-    trigger = 0;
+    //trigger = 0;
     for(k = 0; k < 10; k=k+1) #`clk_period;
     
     //channelEnable = 1, Trigger = 1

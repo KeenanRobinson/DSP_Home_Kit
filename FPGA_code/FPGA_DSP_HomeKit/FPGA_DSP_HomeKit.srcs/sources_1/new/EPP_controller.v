@@ -67,6 +67,7 @@ reg r_reset;    //active low
 reg r_wait;
 reg r_dataCount=0; //Used to determine when to read from channel or read the next byte from 16-bit buffer
 reg r_outputEnable=0;
+reg [7:0] r_testAddr=0;
 
 //Tristate buffer 
 assign pp_data = r_outputEnable ? r_data_out : 8'bz;
@@ -158,7 +159,7 @@ always@(posedge clk) begin
                 state <= ADDR_READ_2;
                 r_outputEnable <= 1;
                 r_wait <= 1;
-                r_data_out <= r_channelSelected; //output the current channel being read from
+                r_data_out <= r_testAddr; //output the current channel being read from
             end
             ADDR_READ_2: begin
                 if(r_nAddrStrobe) begin //PC indicates that it has acknowledged that WAIT is HIGH
@@ -175,9 +176,10 @@ always@(posedge clk) begin
                 if(r_nAddrStrobe) state <= ADDR_WRITE_2;  
             end
             ADDR_WRITE_2: begin
+                r_testAddr <= r_data_in;
                 state <= IDLE;
                 r_wait <= 0;
-                //r_channelSelected <= r_data_in;
+                
             end
             //Start: Address write cycle
         endcase

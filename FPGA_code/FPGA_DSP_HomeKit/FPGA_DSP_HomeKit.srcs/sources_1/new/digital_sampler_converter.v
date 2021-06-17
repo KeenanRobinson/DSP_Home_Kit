@@ -33,9 +33,9 @@ module digital_sampler_converter(
     input wire samplingEnable,
     input wire inputChannel,                //Connected to the perihperal
     output reg writeEnable,
-    output wire [15:0] output_data_stream,
+    output wire [15:0] output_data_stream
     //DEBUGGING
-    output wire w_cState
+    //output wire w_cState
 );
 //Internal registers
 reg r_samplingEnable        = 0;

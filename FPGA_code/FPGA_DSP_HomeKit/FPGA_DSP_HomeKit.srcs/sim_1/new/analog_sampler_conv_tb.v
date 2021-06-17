@@ -27,7 +27,6 @@ reg clk_100MHz;
 reg reset;
 reg clk_sampling;
 reg samplingEnable;
-reg inputChannel;                //Connected to the perihperal
 wire writeEnable;
 wire [15:0] output_data_stream;
 
@@ -35,7 +34,7 @@ wire scl;
 wire sda;
 wire [11:0] fromI2C;
 //DEBUGGING
-wire w_cState;
+//wire w_cState;
 reg [11:0] testing;
 
 analog_sampler_converter uut(
@@ -46,7 +45,7 @@ analog_sampler_converter uut(
     .writeEnable(writeEnable),
     .output_data_stream(output_data_stream),
     //DEBUGGING
-    .w_cState(w_cState),
+    //.w_cState(w_cState),
     .testing(testing)
 );
 
@@ -61,18 +60,11 @@ initial begin
     
     reset = 0;
     samplingEnable = 0;
-    inputChannel = 0;
     
-    #100 
+    #150 
     samplingEnable = 1; //Allow channel to start sampling
-    inputChannel = 1;
     
-    #1500 
+    #300 
     testing = 12'b100000011111;
-    
-    #1500
-    inputChannel = 0;
-    
-    
 end
 endmodule

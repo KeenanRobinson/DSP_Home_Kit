@@ -31,7 +31,7 @@ reg inputChannel;                //Connected to the perihperal
 wire writeEnable;
 wire [15:0] output_data_stream;
 //DEBUGGING
-wire w_cState;
+//wire w_cState;
 
 digital_sampler_converter uut(
     .clk_100MHz(clk_100MHz),
@@ -40,9 +40,9 @@ digital_sampler_converter uut(
     .samplingEnable(samplingEnable),
     .inputChannel(inputChannel),                //Connected to the perihperal
     .writeEnable(writeEnable),
-    .output_data_stream(output_data_stream),
+    .output_data_stream(output_data_stream)
     //DEBUGGING
-    .w_cState(w_cState)
+    //.w_cState(w_cState)
 );
 
 always#(`clk_100MHz_period/2) clk_100MHz = ~clk_100MHz;
@@ -61,7 +61,7 @@ initial begin
     samplingEnable = 1; //Allow channel to start sampling
     inputChannel = 1;
     
-    #1500
+    #15000
     inputChannel = 0;
     
     

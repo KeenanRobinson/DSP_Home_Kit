@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sampling_controller_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sampling_controller_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2316293931fs"></ZoomEndTime>
+      <Cursor1Time time="2314444000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="158"></NameColumnWidth>
+      <ValueColumnWidth column_width="87"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="logic" fp_name="/sampling_controller_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sampling_controller_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sampling_controller_tb/trigger">
+      <obj_property name="ElementShortName">trigger</obj_property>
+      <obj_property name="ObjectShortName">trigger</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sampling_controller_tb/done">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sampling_controller_tb/sampleClock">
+      <obj_property name="ElementShortName">sampleClock</obj_property>
+      <obj_property name="ObjectShortName">sampleClock</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sampling_controller_tb/k">
+      <obj_property name="ElementShortName">k[31:0]</obj_property>
+      <obj_property name="ObjectShortName">k[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sampling_controller_tb/NO_OF_SAMPLES">
+      <obj_property name="ElementShortName">NO_OF_SAMPLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NO_OF_SAMPLES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sampling_controller_tb/CLK_DIV">
+      <obj_property name="ElementShortName">CLK_DIV[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_DIV[31:0]</obj_property>
+   </wvobject>
+</wave_config>

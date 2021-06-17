@@ -34,11 +34,11 @@ module analog_sampler_converter(
     //AD2 Pmod: these connections need to go to the top module
     inout wire scl,
     inout wire sda,
-    output wire [11:0] fromI2C
+    output wire [11:0] fromI2C,
     
     //DEBUGGING
     //output wire w_cState
-    //input wire [11:0] testing
+    input wire [11:0] testing
 );
 //Internal registers
 reg r_samplingEnable        = 0;
@@ -62,7 +62,7 @@ parameter SAMPLE  = 1'b1;
 reg cState = IDLE;
 
 //Module instantiation
-pmod_adc_ad7991 ADC (
+/*pmod_adc_ad7991 ADC (
     .clk(clk_50MHz),
     .reset_n(reset_n),
     .scl(scl),
@@ -72,7 +72,7 @@ pmod_adc_ad7991 ADC (
     .adc_ch1_data(),
     .adc_ch2_data(),
     .adc_ch3_data()
-);
+);*/
 assign fromI2C = adc_output_ch0;
 //Populate internal registers
 always@(posedge clk_100MHz) begin
@@ -97,7 +97,8 @@ always@(posedge clk_100MHz) begin
                 writeEnable <= 0; //Causes writeEnable to be a single pulse
                 if(r_samplingEnable && (prevSampleClock  == 0) && clk_sampling) begin //on rising edge of clk_sampling, while requested to sample
                    cState <= SAMPLE; 
-                   data_reg <= {4'b0000, adc_output_ch0}; //Concatenate to form a 16-bit word
+                   //data_reg <= {4'b0000, adc_output_ch0}; //Concatenate to form a 16-bit word
+                   data_reg <= {4'b0000, testing}; //Concatenate to form a 16-bit word
                 end
                 else begin
                     cState <= IDLE;
