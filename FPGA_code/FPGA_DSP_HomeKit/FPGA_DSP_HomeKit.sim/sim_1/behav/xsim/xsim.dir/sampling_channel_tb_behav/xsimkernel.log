@@ -1,7 +1,0 @@
-Running: xsim.dir/sampling_channel_tb_behav/xsimk -simmode gui -wdb sampling_channel_tb_behav.wdb -simrunnum 0 -socket 51955
-Design successfully loaded
-Design Loading Memory Usage: 43616 KB (Peak: 43736 KB)
-Design Loading CPU Usage: 20 ms
-Simulation completed
-Simulation Memory Usage: 129712 KB (Peak: 190888 KB)
-Simulation CPU Usage: 30 ms

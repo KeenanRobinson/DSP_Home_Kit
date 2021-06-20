@@ -93,7 +93,7 @@ always@(posedge sampleClock or posedge r_reset) begin
         r_done <= 0;
         sampleCount <= 0;
     end
-    else if(sampleCount >= NO_OF_SAMPLES) begin
+    else if(sampleCount >= NO_OF_SAMPLES-1) begin
         r_done <= 1;
     end
     else begin

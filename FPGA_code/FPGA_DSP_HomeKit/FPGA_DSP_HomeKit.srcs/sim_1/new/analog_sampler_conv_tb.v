@@ -55,14 +55,16 @@ always#((`clk_sampling_period/2)+5) clk_sampling = ~clk_sampling; //+5 just to a
 initial begin
     //Initialise clocks
     clk_100MHz = 0;
-    clk_sampling = 0; 
+    clk_sampling = 0;
+    reset = 1; 
     testing = 12'b100000000011;
-    
-    reset = 0;
+    #50
+    reset = 1;
     samplingEnable = 0;
     
     #150 
     samplingEnable = 1; //Allow channel to start sampling
+    reset = 0;
     
     #300 
     testing = 12'b100000011111;

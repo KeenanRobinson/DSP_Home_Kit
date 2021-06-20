@@ -183,5 +183,5 @@ def bitErrorTest(fileDir): #Performs an bit-error test to evaluate accuracy.
 if __name__ == '__main__':
     #array = interpretAsDigitalCSV(defaultFileName)
     #print(array)
-    dir1 = '/home/keenanrob/Documents/EEE4022F/Result_resources/Bit_error_tests/1000000_samples.csv'
+    dir1 = '/home/keenanrob/Documents/EEE4022F/Result_resources/Bit_error_tests/100000_samples.csv'
     print('Number of errors: ',bitErrorTest(dir1))

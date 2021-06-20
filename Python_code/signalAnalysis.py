@@ -24,6 +24,7 @@ import csv
 import math
 import fpgaFileHandler
 import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
 
 #Produces time intervals for when the signal is high and when it is low, useful for IR decoding
 def digitalEnvelopeDetector(fileDir1):
@@ -126,7 +127,7 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
         for entry in data:
             #print(entry)
             if (entryCount > 1) & (entryCount < 502):
-                print(entry[1])
+                #print(entry[1])
                 oscData.append(entry[1])
             entryCount = entryCount + 1
 
@@ -134,8 +135,8 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
     #print(oscData)
     oscData = [float(entry) for entry in oscData]
     oscData = np.array(oscData)
-    print(oscData)
-    print(len(oscData))
+    #print(oscData)
+    #print(len(oscData))
 
     firstChannel = fpgaFileHandler.interpretAsDigitalCSV(compareChDir)
     data1Str = firstChannel[2]  # Extracts binary samples
@@ -150,7 +151,7 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
             dataCount=0
         else:
             dataCount = dataCount+1
-    print(len(reducedSamplesData))
+    #print(len(reducedSamplesData))
     reducedSamplesData = np.array(reducedSamplesData)*3.32
 
     computedNCC = sum(oscData * reducedSamplesData) / math.sqrt(
@@ -159,9 +160,13 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
 
     fig, (ax_osc, ax_compareChannel) = plt.subplots(2, 1, sharex=True)
     ax_osc.plot(oscData)
-    ax_osc.set_title('Oscilloscope data')
+    #ax_osc.set_title('Oscilloscope data')
+    ax_osc.set_xlabel('Sample')
+    ax_osc.set_ylabel('Voltage [V]')
     ax_compareChannel.plot(reducedSamplesData)
-    ax_compareChannel.set_title('Compare channel')
+    ax_compareChannel.set_xlabel('Sample')
+    ax_compareChannel.set_ylabel('Voltage [V]')
+    #ax_compareChannel.set_title('38kHz Compare channel')
     # ax_corr.plot(corr)
 
     # ax_corr.axhline(0.5, ls=':')
@@ -175,15 +180,15 @@ if __name__ == '__main__':
     dir1 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz.csv'
     dir2 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch3_ir_40khz.csv'
     dir3 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch2_ir_36khz.csv'
-    # print('38kHz and 40kHz:')
-    # determineCorrelation(dir1, dir2)
-    # print('38kHz and 36kHz:')
-    # determineCorrelation(dir1, dir3)
-    # print('36kHz and 40kHz:')
-    # determineCorrelation(dir3, dir2)
-    # Test correlation with oscilloscope:
-    #oscilloscopeDir = '/home/keenanrob/Documents/EEE4022F/Result resources/final_ir.csv'
-    #normCorrWithOscilloscope(oscilloscopeDir, '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz.csv')
+    print('38kHz and 40kHz:')
+    determineCorrelation(dir1, dir2)
+    print('38kHz and 36kHz:')
+    determineCorrelation(dir1, dir3)
+    print('36kHz and 40kHz:')
+    determineCorrelation(dir3, dir2)
+    #Test correlation with oscilloscope:
+    oscilloscopeDir = '/home/keenanrob/Documents/EEE4022F/Result_resources/final_ir.csv'
+    print('Oscilloscope vs 38khz:')
+    normCorrWithOscilloscope(oscilloscopeDir, '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz.csv')
     # Test the envelope detector:
-
-    digitalEnvelopeDetector(dir1)
+    #digitalEnvelopeDetector(dir1)

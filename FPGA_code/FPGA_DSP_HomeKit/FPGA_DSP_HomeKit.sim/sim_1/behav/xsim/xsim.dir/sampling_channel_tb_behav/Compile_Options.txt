@@ -1,1 +1,0 @@
--wto "3623712bcdec4c289b3c021813d2443c" --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "sampling_channel_tb_behav" "xil_defaultlib.sampling_channel_tb" "xil_defaultlib.glbl" -log "elaborate.log" 

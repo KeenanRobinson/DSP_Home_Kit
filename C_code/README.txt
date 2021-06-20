@@ -11,5 +11,8 @@ Current Linux kernel version: 5.4.0-74-generic
 Linux distribution: Ubuntu 18.04.5 LTS
 Architecture: x86-64
 
+Created by: Keenan Robinson
+Project: DSP@Home Kit
+
 
 */
