@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log top_audio.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_audio.tcl
+    with args -log top_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_test.tcl
 
 
 ****** Vivado v2018.3 (64-bit)
@@ -8,18 +8,17 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source top_audio.tcl -notrace
-Command: synth_design -top top_audio -part xc7a100tcsg324-1
+source top_test.tcl -notrace
+Command: synth_design -top top_test -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 25574 
+INFO: Helper process launched with PID 16270 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1372.516 ; gain = 42.922 ; free physical = 6341 ; free virtual = 24712
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1373.133 ; gain = 0.000 ; free physical = 7960 ; free virtual = 27647
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-2040] formal port ack_error of mode buffer cannot be associated with actual port i2c_ack_err of mode out [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:90]
-INFO: [Synth 8-6157] synthesizing module 'top_audio' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_audio.v:26]
+INFO: [Synth 8-6157] synthesizing module 'top_test' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:27]
 INFO: [Synth 8-6157] synthesizing module 'EPP_controller' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:24]
 	Parameter IDLE bound to: 4'b0000 
 	Parameter DATA_READ_1 bound to: 4'b0001 
@@ -30,60 +29,15 @@ INFO: [Synth 8-6157] synthesizing module 'EPP_controller' [/home/keenanrob/Docum
 	Parameter ADDR_READ_2 bound to: 4'b0110 
 	Parameter ADDR_WRITE_1 bound to: 4'b0111 
 	Parameter ADDR_WRITE_2 bound to: 4'b1000 
-INFO: [Synth 8-155] case statement is not full and has no default [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:115]
-WARNING: [Synth 8-6014] Unused sequential element r_data_in_reg was removed.  [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:79]
-WARNING: [Synth 8-6014] Unused sequential element r_writtenData_reg was removed.  [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:151]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:116]
+WARNING: [Synth 8-6014] Unused sequential element r_writtenData_reg was removed.  [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:152]
 INFO: [Synth 8-6155] done synthesizing module 'EPP_controller' (1#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/EPP_controller.v:24]
-INFO: [Synth 8-6157] synthesizing module 'sampling_Channel' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_Channel.v:28]
-	Parameter NO_OF_SAMPLES bound to: 441000 - type: integer 
-	Parameter CLK_DIV bound to: 2268 - type: integer 
-	Parameter DATA_WIDTH bound to: 16 - type: integer 
-	Parameter DATA_DEPTH bound to: 441000 - type: integer 
-	Parameter ADDRESS_SIZE bound to: 19 - type: integer 
-	Parameter ALMOST_EMPTY_THRESH bound to: 88200 - type: integer 
-	Parameter ALMOST_FULL_THRESH bound to: 352800 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'fifo' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/fifo.v:31]
-	Parameter DATA_WIDTH bound to: 16 - type: integer 
-	Parameter DATA_DEPTH bound to: 441000 - type: integer 
-	Parameter ADDRESS_SIZE bound to: 19 - type: integer 
-	Parameter ALMOST_EMPTY_THRESH bound to: 88200 - type: integer 
-	Parameter ALMOST_FULL_THRESH bound to: 352800 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'dual_sync_ram' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/dual_sync_ram.v:23]
-	Parameter DATA_WIDTH bound to: 16 - type: integer 
-	Parameter DATA_DEPTH bound to: 441000 - type: integer 
-	Parameter ADDRESS_SIZE bound to: 19 - type: integer 
-WARNING: [Synth 8-6014] Unused sequential element r_read_addr_reg was removed.  [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/dual_sync_ram.v:51]
-WARNING: [Synth 8-6014] Unused sequential element r_write_addr_reg was removed.  [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/dual_sync_ram.v:52]
-INFO: [Synth 8-6155] done synthesizing module 'dual_sync_ram' (2#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/dual_sync_ram.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'fifo' (3#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/fifo.v:31]
-INFO: [Synth 8-6157] synthesizing module 'sampling_controller' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_controller.v:25]
-	Parameter NO_OF_SAMPLES bound to: 441000 - type: integer 
-	Parameter CLK_DIV bound to: 2268 - type: integer 
-WARNING: [Synth 8-3848] Net w_channelEnable in module/entity sampling_controller does not have driver. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_controller.v:36]
-INFO: [Synth 8-6155] done synthesizing module 'sampling_controller' (4#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_controller.v:25]
-WARNING: [Synth 8-350] instance 'controller' of module 'sampling_controller' requires 10 connections, but only 5 given [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_Channel.v:86]
-INFO: [Synth 8-6155] done synthesizing module 'sampling_Channel' (5#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/sampling_Channel.v:28]
-INFO: [Synth 8-6157] synthesizing module 'analog_sampler_converter' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/analog_sampler_converter.v:27]
-	Parameter IDLE bound to: 1'b0 
-	Parameter SAMPLE bound to: 1'b1 
-INFO: [Synth 8-638] synthesizing module 'pmod_adc_ad7991' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:42]
-	Parameter sys_clk_freq bound to: 50000000 - type: integer 
-	Parameter input_clk bound to: 50000000 - type: integer 
-	Parameter bus_clk bound to: 400000 - type: integer 
-INFO: [Synth 8-3491] module 'i2c_master' declared at '/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/i2c_master.vhd:36' bound to instance 'i2c_master_0' of component 'i2c_master' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-INFO: [Synth 8-638] synthesizing module 'i2c_master' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/i2c_master.vhd:54]
-	Parameter input_clk bound to: 50000000 - type: integer 
-	Parameter bus_clk bound to: 400000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'i2c_master' (6#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/i2c_master.vhd:54]
-INFO: [Synth 8-226] default block is never used [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:171]
-WARNING: [Synth 8-3848] Net i2c_data_wr in module/entity pmod_adc_ad7991 does not have driver. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:49]
-INFO: [Synth 8-256] done synthesizing module 'pmod_adc_ad7991' (7#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:42]
-INFO: [Synth 8-6155] done synthesizing module 'analog_sampler_converter' (8#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/analog_sampler_converter.v:27]
-INFO: [Synth 8-6155] done synthesizing module 'top_audio' (9#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_audio.v:26]
-WARNING: [Synth 8-3331] design sampling_controller has unconnected port w_channelEnable
-WARNING: [Synth 8-3331] design dual_sync_ram has unconnected port i_rst
+WARNING: [Synth 8-3848] Net sw0 in module/entity top_test does not have driver. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:51]
+WARNING: [Synth 8-3848] Net sw1 in module/entity top_test does not have driver. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:52]
+WARNING: [Synth 8-3848] Net sw2 in module/entity top_test does not have driver. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'top_test' (2#1) [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:27]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1557.602 ; gain = 228.008 ; free physical = 6342 ; free virtual = 24712
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1417.805 ; gain = 44.672 ; free physical = 7971 ; free virtual = 27659
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -92,22 +46,17 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[7] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[6] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[5] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[4] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[3] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[2] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[1] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
-WARNING: [Synth 8-3295] tying undriven pin i2c_master_0:data_wr[0] to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/pmod_adc_ad7991.vhd:79]
+WARNING: [Synth 8-3295] tying undriven pin EPP:sw0 to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:65]
+WARNING: [Synth 8-3295] tying undriven pin EPP:sw1 to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:65]
+WARNING: [Synth 8-3295] tying undriven pin EPP:sw2 to constant 0 [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_test.v:65]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1557.602 ; gain = 228.008 ; free physical = 6345 ; free virtual = 24715
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1417.805 ; gain = 44.672 ; free physical = 7971 ; free virtual = 27658
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1557.602 ; gain = 228.008 ; free physical = 6345 ; free virtual = 24715
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1417.805 ; gain = 44.672 ; free physical = 7971 ; free virtual = 27658
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -115,56 +64,55 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sw0'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw1'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw2'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ch3_ir_input'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:121]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ch1_ir_input'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:122]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ch2_ir_input'. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:123]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc:123]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_audio_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_audio_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1798.664 ; gain = 0.000 ; free physical = 6073 ; free virtual = 24444
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/constrs_1/new/NexysA7Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_test_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_test_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7697 ; free virtual = 27384
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1798.664 ; gain = 0.000 ; free physical = 6074 ; free virtual = 24445
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7698 ; free virtual = 27385
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1798.664 ; gain = 0.000 ; free physical = 6074 ; free virtual = 24445
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1798.664 ; gain = 0.000 ; free physical = 6074 ; free virtual = 24445
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7698 ; free virtual = 27385
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7698 ; free virtual = 27385
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1798.664 ; gain = 469.070 ; free physical = 6154 ; free virtual = 24525
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7784 ; free virtual = 27471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1798.664 ; gain = 469.070 ; free physical = 6154 ; free virtual = 24525
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7784 ; free virtual = 27471
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1798.664 ; gain = 469.070 ; free physical = 6156 ; free virtual = 24527
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7786 ; free virtual = 27473
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'EPP_controller'
+INFO: [Synth 8-5544] ROM "r_testAddr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5545] ROM "o_empty" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "o_full" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i2c_master'
-INFO: [Synth 8-5546] ROM "scl_clk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "data_clk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "stretch" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "sda_int" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pmod_adc_ad7991'
-INFO: [Synth 8-5544] ROM "counter" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "busy_prev" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "busy_cnt" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "adc_ch0_data" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "ch1_read_enable" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -179,31 +127,8 @@ INFO: [Synth 8-5546] ROM "ch1_read_enable" won't be mapped to RAM because it is 
              ADDR_READ_2 |                             1000 |                             0110
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'EPP_controller'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                   ready |                        000000001 |                             0000
-                   start |                        000000010 |                             0001
-                 command |                        000000100 |                             0010
-                slv_ack1 |                        000001000 |                             0011
-                      wr |                        000010000 |                             0100
-                slv_ack2 |                        000100000 |                             0110
-                      rd |                        001000000 |                             0101
-                mstr_ack |                        010000000 |                             0111
-                    stop |                        100000000 |                             1000
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'i2c_master'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                   start |                              001 |                               00
-               read_data |                              010 |                               01
-           output_result |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'pmod_adc_ad7991'
-WARNING: [Synth 8-327] inferring latch for variable 'ch1_read_enable_reg' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/top_audio.v:150]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1798.664 ; gain = 469.070 ; free physical = 6149 ; free virtual = 24520
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7777 ; free virtual = 27465
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -216,50 +141,18 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 2     
-	   2 Input     19 Bit       Adders := 2     
-	   2 Input      7 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 1     
-	               19 Bit    Registers := 2     
-	               16 Bit    Registers := 6     
-	               12 Bit    Registers := 4     
-	                8 Bit    Registers := 6     
-	                7 Bit    Registers := 2     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 30    
-+---RAMs : 
-	            6890K Bit         RAMs := 1     
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 9     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
-	   2 Input     19 Bit        Muxes := 2     
-	  10 Input     16 Bit        Muxes := 4     
-	   3 Input     16 Bit        Muxes := 4     
-	   2 Input     16 Bit        Muxes := 4     
-	   4 Input     16 Bit        Muxes := 1     
-	   4 Input     12 Bit        Muxes := 4     
-	   9 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 9     
-	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 2     
 	   9 Input      8 Bit        Muxes := 1     
-	   6 Input      8 Bit        Muxes := 1     
 	   9 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 4     
-	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 17    
-	   9 Input      1 Bit        Muxes := 16    
-	   4 Input      1 Bit        Muxes := 3     
-	   3 Input      1 Bit        Muxes := 5     
-	   6 Input      1 Bit        Muxes := 3     
-	  10 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 3     
+	   9 Input      1 Bit        Muxes := 10    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -267,16 +160,16 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module top_audio 
+Module top_test 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
 	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
 Module EPP_controller 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
 	                1 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 2     
@@ -285,84 +178,7 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 3     
 	   2 Input      2 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 3     
-	   9 Input      1 Bit        Muxes := 9     
-Module dual_sync_ram 
-Detailed RTL Component Info : 
-+---Registers : 
-	               16 Bit    Registers := 1     
-+---RAMs : 
-	            6890K Bit         RAMs := 1     
-Module fifo 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 2     
-	   2 Input     19 Bit       Adders := 2     
-+---Registers : 
-	               32 Bit    Registers := 1     
-	               19 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
-	   2 Input     19 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 5     
-Module sampling_controller 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 2     
-Module i2c_master 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 1     
-	   2 Input      3 Bit       Adders := 1     
-+---Registers : 
-	                8 Bit    Registers := 4     
-	                7 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 8     
-+---Muxes : 
-	   9 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 9     
-	   6 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 1     
-	   9 Input      1 Bit        Muxes := 7     
-	   6 Input      1 Bit        Muxes := 3     
-Module pmod_adc_ad7991 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 4     
-	               12 Bit    Registers := 4     
-	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	  10 Input     16 Bit        Muxes := 4     
-	   3 Input     16 Bit        Muxes := 4     
-	   2 Input     16 Bit        Muxes := 4     
-	   4 Input     12 Bit        Muxes := 4     
-	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	  10 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 4     
-Module analog_sampler_converter 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      2 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 10    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -379,240 +195,9 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'channel1_sampler/r_reset_reg' into 'channel1/controller/r_reset_reg' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/analog_sampler_converter.v:57]
-INFO: [Synth 8-4471] merging register 'channel1_sampler/r_samplingEnable_reg' into 'channel1/controller/r_trigger_reg' [/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.srcs/sources_1/new/analog_sampler_converter.v:80]
-INFO: [Synth 8-5544] ROM "channel1_sampler/ADC/i2c_master_0/sda_int" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "channel1_sampler/ADC/i2c_master_0/state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "channel1_sampler/ADC/i2c_master_0/state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "channel1_sampler/ADC/i2c_master_0/state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5545] ROM "channel1/memory_buffer/o_full" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "channel1/memory_buffer/o_empty" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5546] ROM "channel1_sampler/ADC/i2c_master_0/stretch" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "channel1_sampler/ADC/i2c_master_0/data_clk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "channel1_sampler/ADC/i2c_master_0/scl_clk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "ch1_read_enable" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/data_reg_reg[12]' (FDRE) to 'channel1_sampler/data_reg_reg[13]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/data_reg_reg[13]' (FDRE) to 'channel1_sampler/data_reg_reg[14]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/data_reg_reg[14]' (FDRE) to 'channel1_sampler/data_reg_reg[15]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\channel1_sampler/data_reg_reg[15] )
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_addr_reg[5]' (FDE) to 'channel1_sampler/ADC/i2c_addr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[6]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[4]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_addr_reg[6]' (FDE) to 'channel1_sampler/ADC/i2c_addr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[7]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[1]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\channel1_sampler/ADC/i2c_rw_reg )
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_addr_reg[0]' (FDE) to 'channel1_sampler/ADC/i2c_addr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[1]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[2]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_addr_reg[1]' (FDE) to 'channel1_sampler/ADC/i2c_addr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[2]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[3]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_addr_reg[2]' (FDE) to 'channel1_sampler/ADC/i2c_addr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[3]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[5]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\channel1_sampler/ADC/i2c_addr_reg[3] )
-INFO: [Synth 8-3886] merging instance 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[4]' (FDE) to 'channel1_sampler/ADC/i2c_master_0/addr_rw_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\channel1_sampler/ADC/i2c_addr_reg[4] )
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__191' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__159' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__127' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__95' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__63' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__31' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__199' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__167' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__135' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__103' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__71' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__39' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__7' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__192' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__160' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__128' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__96' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__64' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__32' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__0' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__200' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__168' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__136' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__104' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__72' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__40' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__8' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'EPP/r_channelSelected_reg[2]' (FDR) to 'EPP/r_channelSelected_reg[3]'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__193' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__161' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__129' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__97' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__65' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__33' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__1' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__201' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__169' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__137' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__105' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__73' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__41' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__9' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'EPP/r_channelSelected_reg[3]' (FDR) to 'EPP/r_channelSelected_reg[4]'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__194' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__162' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__130' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__98' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__66' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__34' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__2' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__202' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__170' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__138' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__106' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__74' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__42' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__10' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'EPP/r_channelSelected_reg[4]' (FDR) to 'EPP/r_channelSelected_reg[5]'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__195' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__163' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__131' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__99' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__67' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__35' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__3' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__203' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__171' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__139' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__107' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__75' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__43' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__11' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'EPP/r_channelSelected_reg[5]' (FDR) to 'EPP/r_channelSelected_reg[6]'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__196' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__164' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__132' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__100' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__68' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__36' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__4' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__14'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__204' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__172' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__140' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__142'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__108' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Synth 8-3886] merging instance 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__76' (FDE) to 'i_8/channel1/memory_buffer/BRAM/memory_reg_mux_sel__206'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\EPP/r_channelSelected_reg[7] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\channel1_sampler/ADC/i2c_master_0/addr_rw_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\channel1_sampler/ADC/i2c_master_0/addr_rw_reg[5] )
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__15) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__16) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__17) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__18) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__19) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__20) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__21) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__22) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__23) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__24) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__25) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__26) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__27) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__28) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__29) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__30) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__47) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__48) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__49) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__50) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__51) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__52) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__53) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__54) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__55) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__56) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__57) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__58) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__59) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__60) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__61) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__62) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__79) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__80) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__81) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__82) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__83) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__84) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__85) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__86) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__87) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__88) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__89) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__90) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__91) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__92) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__93) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__94) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__111) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__112) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__113) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__114) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__115) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__116) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__117) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__118) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__119) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__120) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__121) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__122) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__123) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__124) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__125) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__126) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__143) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__144) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__145) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__146) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__147) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__148) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__149) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__150) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__151) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__152) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__153) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__154) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__155) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__156) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__157) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__158) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__175) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__176) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__177) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__178) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__179) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__180) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__181) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__182) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__183) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__184) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__185) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__186) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__187) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__188) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__189) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1/memory_buffer/BRAM/memory_reg_mux_sel__190) is unused and will be removed from module top_audio.
+WARNING: [Synth 8-3917] design top_test has port pp_select_emptyFifo_inv driven by constant 0
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1798.664 ; gain = 469.070 ; free physical = 6121 ; free virtual = 24498
----------------------------------------------------------------------------------
-WARNING: [Synth 8-5835] Resources of type BRAM have been overutilized. Used = 448, Available = 270. Will try to implement using LUT-RAM. 
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Preliminary Mapping  Report (see note below)
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-|Module Name | RTL Object                             | Inference | Size (Depth x Width) | Primitives                        | 
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-|top_audio   | channel1/memory_buffer/BRAM/memory_reg | Implied   | 512 K x 16           | RAM64X1D x 6891  RAM64M x 34455   | 
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-
-Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7766 ; free virtual = 27455
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -624,27 +209,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 2009.500 ; gain = 679.906 ; free physical = 5734 ; free virtual = 24111
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:32 ; elapsed = 00:03:38 . Memory (MB): peak = 3184.523 ; gain = 1854.930 ; free physical = 5351 ; free virtual = 23727
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Final Mapping  Report
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-|Module Name | RTL Object                             | Inference | Size (Depth x Width) | Primitives                        | 
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-|top_audio   | channel1/memory_buffer/BRAM/memory_reg | Implied   | 512 K x 16           | RAM64X1D x 6891  RAM64M x 34455   | 
-+------------+----------------------------------------+-----------+----------------------+-----------------------------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7638 ; free virtual = 27328
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -655,10 +226,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (channel1_sampler/ADC/i2c_master_0/FSM_onehot_state_reg[5]) is unused and will be removed from module top_audio.
-WARNING: [Synth 8-3332] Sequential element (channel1_sampler/ADC/i2c_master_0/FSM_onehot_state_reg[4]) is unused and will be removed from module top_audio.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:07:14 ; elapsed = 00:07:22 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5351 ; free virtual = 23738
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -682,7 +251,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:07:34 ; elapsed = 00:07:43 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5284 ; free virtual = 23684
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -695,7 +264,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:07:36 ; elapsed = 00:07:44 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5288 ; free virtual = 23689
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -707,25 +276,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:08:33 ; elapsed = 00:08:41 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5291 ; free virtual = 23699
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:08:34 ; elapsed = 00:08:42 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5291 ; free virtual = 23699
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:12:11 ; elapsed = 00:12:21 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5229 ; free virtual = 23650
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:12:12 ; elapsed = 00:12:21 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5229 ; free virtual = 23650
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -738,73 +307,53 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |BUFG     |     3|
-|2     |CARRY4   |    48|
-|3     |LUT1     |    43|
-|4     |LUT2     |   322|
-|5     |LUT3     |    39|
-|6     |LUT4     | 42137|
-|7     |LUT5     | 38215|
-|8     |LUT6     | 56847|
-|9     |MUXF7    | 14656|
-|10    |MUXF8    |  7264|
-|11    |RAM64M   | 34455|
-|12    |RAM64X1D |  6891|
-|13    |FDCE     |    98|
-|14    |FDPE     |     7|
-|15    |FDRE     |   577|
-|16    |LD       |     1|
-|17    |IBUF     |    10|
-|18    |IOBUF    |     2|
-|19    |OBUF     |    15|
-|20    |OBUFT    |     8|
-+------+---------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     4|
+|3     |LUT1   |     6|
+|4     |LUT2   |     3|
+|5     |LUT4   |     3|
+|6     |LUT5   |    14|
+|7     |LUT6   |     4|
+|8     |FDCE   |    17|
+|9     |FDRE   |    35|
+|10    |IBUF   |     6|
+|11    |IOBUF  |     8|
+|12    |OBUF   |    15|
++------+-------+------+
 
 Report Instance Areas: 
-+------+-------------------+-------------------------+-------+
-|      |Instance           |Module                   |Cells  |
-+------+-------------------+-------------------------+-------+
-|1     |top                |                         | 201638|
-|2     |  EPP              |EPP_controller           |     50|
-|3     |  channel1         |sampling_Channel         | 201260|
-|4     |    controller     |sampling_controller      |    109|
-|5     |    memory_buffer  |fifo                     | 201151|
-|6     |      BRAM         |dual_sync_ram            | 200232|
-|7     |  channel1_sampler |analog_sampler_converter |    287|
-|8     |    ADC            |pmod_adc_ad7991          |    267|
-|9     |      i2c_master_0 |i2c_master               |    127|
-+------+-------------------+-------------------------+-------+
++------+---------+---------------+------+
+|      |Instance |Module         |Cells |
++------+---------+---------------+------+
+|1     |top      |               |   116|
+|2     |  EPP    |EPP_controller |    63|
++------+---------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:12:12 ; elapsed = 00:12:21 . Memory (MB): peak = 3785.664 ; gain = 2456.070 ; free physical = 5229 ; free virtual = 23650
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7640 ; free virtual = 27329
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 100 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:12:06 ; elapsed = 00:12:15 . Memory (MB): peak = 3785.664 ; gain = 2215.008 ; free physical = 5288 ; free virtual = 23709
-Synthesis Optimization Complete : Time (s): cpu = 00:12:12 ; elapsed = 00:12:21 . Memory (MB): peak = 3785.672 ; gain = 2456.070 ; free physical = 5288 ; free virtual = 23709
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1787.695 ; gain = 44.672 ; free physical = 7693 ; free virtual = 27382
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1787.695 ; gain = 414.562 ; free physical = 7693 ; free virtual = 27382
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 63317 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 32 CPU seconds
-WARNING: [Netlist 29-101] Netlist 'top_audio' is not ideal for floorplanning, since the cellview 'dual_sync_ram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.19 . Memory (MB): peak = 3817.680 ; gain = 0.000 ; free physical = 4625 ; free virtual = 23047
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7633 ; free virtual = 27323
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 41349 instances were transformed.
-  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
-  LD => LDCE: 1 instances
-  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 34455 instances
-  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 6891 instances
+  A total of 8 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-178 Infos, 119 Warnings, 0 Critical Warnings and 0 Errors encountered.
+21 Infos, 14 Warnings, 6 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:13:57 ; elapsed = 00:14:02 . Memory (MB): peak = 3817.680 ; gain = 2488.164 ; free physical = 5250 ; free virtual = 23672
-Netlist sorting complete. Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.20 . Memory (MB): peak = 3817.680 ; gain = 0.000 ; free physical = 5254 ; free virtual = 23676
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1787.695 ; gain = 414.641 ; free physical = 7689 ; free virtual = 27378
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1787.695 ; gain = 0.000 ; free physical = 7689 ; free virtual = 27378
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint '/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1/top_audio.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 3841.691 ; gain = 24.012 ; free physical = 5218 ; free virtual = 23676
-INFO: [runtcl-4] Executing : report_utilization -file top_audio_utilization_synth.rpt -pb top_audio_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 17 12:24:44 2021...
+INFO: [Common 17-1381] The checkpoint '/home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1/top_test.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_test_utilization_synth.rpt -pb top_test_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 20 01:49:54 2021...

@@ -99,44 +99,10 @@ def interpretAsDigitalCSV(filenameIn):
                 channelInfo.append(int(entry[0])) #This is the channel
             else:
                 binaryEntry = "{:0>16}".format(bin(int(entry[0]))[2:]) #Reformats to binary string
-                #print(binaryEntry)
-                #print(binaryEntry[0])
-                #print(binaryEntry[1])
-                #print(binaryEntry[2])
-                #print(binaryEntry[3])
-                #print(binaryEntry[4])
-                #print(binaryEntry[5])
-                #print(binaryEntry[6])
-                #print(binaryEntry[7])
-                #print(binaryEntry[8])
-                #print(binaryEntry[9])
-                #print(binaryEntry[10])
-                #print(binaryEntry[11])
-                #print(binaryEntry[12])
-                #print(binaryEntry[13])
-                #print(binaryEntry[14])
-                #print(binaryEntry[15])
-                #dataList.append(binaryEntry)
                 for i in range (16):
                     dataList.append(binaryEntry[i])
                     timeList.append(sampleTime)
                     sampleTime = sampleTime+(1/(float(channelInfo[1]))) #Calculate the next time interval
-                    #dataList.append(binaryEntry[1])
-                    #dataList.append(binaryEntry[2])
-                    #dataList.append(binaryEntry[3])
-                    #dataList.append(binaryEntry[4])
-                    #dataList.append(binaryEntry[5])
-                    #dataList.append(binaryEntry[6])
-                    #dataList.append(binaryEntry[7])
-                    #dataList.append(binaryEntry[8])
-                    #dataList.append(binaryEntry[9])
-                    #dataList.append(binaryEntry[10])
-                    #dataList.append(binaryEntry[11])
-                    #dataList.append(binaryEntry[12])
-                    #dataList.append(binaryEntry[13])
-                    #dataList.append(binaryEntry[14])
-                    #dataList.append(binaryEntry[15])
-
             entryCount = entryCount+1
             #print(entryCount)
 
@@ -174,7 +140,7 @@ def interpretAsAnalogCSV(filenameIn):
     return [channelInfo, timeList, dataList]
 
 def writeCSV_Decimal(filenameWithDir, inputList): #Here the data from the FPGA channel is converted to a single column
-     with open(filenameWithDir, 'w', newline='') as csv_file:
+    with open(filenameWithDir, 'w', newline='') as csv_file:
         data_writer = csv.writer(csv_file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
 
         for i in range (0, len(inputList)):
@@ -191,7 +157,31 @@ def writeCSV_Decimal(filenameWithDir, inputList): #Here the data from the FPGA c
             ])
         csv_file.close()
 
+def bitErrorTest(fileDir): #Performs an bit-error test to evaluate accuracy.
+    compareValue = 1 #initial starting value
+    entryCount = 0
+    numberOfErrors = 0
+    testValues = []
+    with open(fileDir, 'r', newline='') as csv_file:
+        data = csv.reader(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        for entry in data:
+            if entryCount > 2:
+                testValues.append(int(entry[0]))
+            entryCount = entryCount + 1
+        csv_file.close()
+
+    for i in range(len(testValues)): #For loop through the different data entries, comparing each 16-bit word
+        if compareValue != testValues[i]:
+            numberOfErrors = numberOfErrors+1
+            print(testValues[i])
+        compareValue = compareValue+1
+        if(compareValue == 65536): #if the compare value has a bit width greater than 16, return to 0
+            compareValue=0
+    return numberOfErrors
+
 
 if __name__ == '__main__':
-    array = interpretAsDigitalCSV(defaultFileName)
-    print(array)
+    #array = interpretAsDigitalCSV(defaultFileName)
+    #print(array)
+    dir1 = '/home/keenanrob/Documents/EEE4022F/Result_resources/Bit_error_tests/1000000_samples.csv'
+    print('Number of errors: ',bitErrorTest(dir1))

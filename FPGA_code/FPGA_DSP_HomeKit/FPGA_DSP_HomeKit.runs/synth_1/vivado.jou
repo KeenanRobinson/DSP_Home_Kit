@@ -2,11 +2,11 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Thu Jun 17 12:09:38 2021
-# Process ID: 25556
+# Start of session at: Sun Jun 20 01:49:31 2021
+# Process ID: 16244
 # Current directory: /home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1
-# Command line: vivado -log top_audio.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_audio.tcl
-# Log file: /home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1/top_audio.vds
+# Command line: vivado -log top_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_test.tcl
+# Log file: /home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1/top_test.vds
 # Journal file: /home/keenanrob/Documents/EEE4022F/FPGA_code/FPGA_DSP_HomeKit/FPGA_DSP_HomeKit.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source top_audio.tcl -notrace
+source top_test.tcl -notrace

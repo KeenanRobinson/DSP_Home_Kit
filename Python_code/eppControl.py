@@ -19,7 +19,6 @@ import os
 
 cCodeExecutableLocation = "sudo ./home/keenanrob/Documents/EEE4022F/C_code"
 
-
 # This code launches the c code driver responsible for allowing the parallel port read driver
 def readChannel(savefileDirectory, noOf16BitSamples, freq, channelAddr):
     home_dir = os.system("cd ~")

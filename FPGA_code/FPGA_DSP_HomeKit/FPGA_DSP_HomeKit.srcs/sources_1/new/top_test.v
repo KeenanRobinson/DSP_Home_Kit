@@ -35,7 +35,7 @@ module top_test(
     output wire pp_wait_inv,
     output wire pp_select_emptyFifo_inv,
     inout wire [7:0] pp_data,
-    output wire [13:0] led    
+    output wire [12:0] led    
 );
 
 //Internal registers
@@ -48,6 +48,9 @@ wire pp_select_emptyFifo;
 wire channelReset;
 reg detectStrobe=0;
 reg incrCount=0;
+wire sw0;
+wire sw1;
+wire sw2;
 assign led [7:0] = pp_data;
 assign led[8] = pp_write;
 assign led[9] = pp_nDataStrobe;
@@ -74,7 +77,10 @@ EPP_controller EPP (
     .channel_empty(channel_empty),
     .data_req(data_req), //Pulse signal to get the FIFO data entry
     .w_channelSelected(w_channelSelected),
-    .channelReset(channelReset)
+    .channelReset(channelReset),
+    .sw0(sw0),
+    .sw1(sw1),
+    .sw2(sw2)
 );
 
 /*always@(posedge clk) begin

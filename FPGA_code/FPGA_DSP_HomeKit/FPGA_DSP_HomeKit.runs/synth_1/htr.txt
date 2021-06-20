@@ -6,4 +6,4 @@
 # Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log top_audio.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_audio.tcl
+vivado -log top_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_test.tcl
