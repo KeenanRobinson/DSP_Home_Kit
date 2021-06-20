@@ -34,6 +34,7 @@ from matplotlib.figure import Figure
 from matplotlib import style
 import matplotlib.pyplot as plt
 import math
+import os
 
 
 HEADING_FONT= ("Arial", 12, "underline", "bold")
@@ -317,7 +318,7 @@ class GraphPage(tk.Frame): #inherit everything from the frame
         a = graphFigure.add_subplot(111)  # 1 subplot, 1 chart
         a.plot([1, 2, 3, 4, 5, 6, 7, 8], [2, 4, 6, 8, 2, 4, 6, 8])
         a.set_xlabel("Time (seconds)")
-        a.set_ylabel("Binary value")
+        a.set_ylabel("Value")
         graphFigure.suptitle("Recorded channel data") #Read data
 
         canvas = FigureCanvasTkAgg(graphFigure, self)
@@ -338,13 +339,18 @@ class GraphPage(tk.Frame): #inherit everything from the frame
                 data = fpgaFileHandler.interpretAsAnalogCSV(self.filename)
             else:
                 data = fpgaFileHandler.interpretAsDigitalCSV(self.filename)
+
+            fileName.set(os.path.basename(self.filename)) #Extract file name from the path
+            readChannel.set(data[0][0])
+            numberOfSamples.set(data[0][2])
+            frequency.set(data[0][1])
+
             a.clear()
+            #print(data[1])
             a.plot(data[1], data[2])
             a.set_xlabel("Time (seconds)")
-            a.set_ylabel("Binary value")
+            a.set_ylabel("Sample Value")
             graphFigure.suptitle("Recorded channel data")  # Read data
-            #print(data)
-            #print(data[1])
             canvas.draw()
 
 app = DSPHomeKit()

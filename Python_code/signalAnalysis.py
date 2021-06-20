@@ -24,6 +24,7 @@ import csv
 import math
 import fpgaFileHandler
 import matplotlib.pyplot as plt
+from scipy.fft import fft, fftfreq
 plt.rcParams["font.family"] = "Times New Roman"
 
 #Produces time intervals for when the signal is high and when it is low, useful for IR decoding
@@ -58,8 +59,6 @@ def digitalEnvelopeDetector(fileDir1):
         print('1: ', duration, 'us')
     totalDuration = totalDuration + duration
     print('Total duration: ', totalDuration, 'us')
-
-
 
 
 def determineCorrelation(fileDir1, fileDir2):
@@ -115,13 +114,37 @@ def determineCorrelation(fileDir1, fileDir2):
     # plt.show()
     # print(data1)
 
+def irComparisonGraphs(channelDir_36khz, channelDir_38khz, channelDir_40khz):
+    channel_36khz = fpgaFileHandler.interpretAsDigitalCSV(channelDir_36khz)
+    channel_38khz = fpgaFileHandler.interpretAsDigitalCSV(channelDir_38khz)
+    channel_40khz = fpgaFileHandler.interpretAsDigitalCSV(channelDir_40khz)
+
+    fig,(ax_36khz,ax_38khz,ax_40khz)=plt.subplots(3,1,sharex=False)
+    #36kHz
+    ax_36khz.plot(channel_36khz[1], channel_36khz[2])
+    ax_36khz.set_title('36kHz Channel')
+    ax_36khz.set_xlabel('Time (s)')
+    ax_36khz.set_ylabel('Binary value')
+    #38kHz
+    ax_38khz.plot(channel_38khz[1], channel_38khz[2])
+    ax_38khz.set_title('38kHz Channel')
+    ax_38khz.set_xlabel('Time (s)')
+    ax_38khz.set_ylabel('Binary value')
+    #40kHz
+    ax_40khz.plot(channel_40khz[1], channel_40khz[2])
+    ax_40khz.set_title('40kHz Channel')
+    ax_40khz.set_xlabel('Time (s)')
+    ax_40khz.set_ylabel('Binary value')
+
+    fig.tight_layout()
+    plt.show()
+
 
 def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
     # First read the correct data format from the oscilloscope:
     #
     entryCount = 0
     oscData = []
-
     with open(oscilloscopeCSV, 'r', newline='') as csv_file:
         data = csv.reader(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         for entry in data:
@@ -130,7 +153,6 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
                 #print(entry[1])
                 oscData.append(entry[1])
             entryCount = entryCount + 1
-
         csv_file.close()
     #print(oscData)
     oscData = [float(entry) for entry in oscData]
@@ -158,7 +180,7 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
         sum(oscData * oscData) * sum(reducedSamplesData * reducedSamplesData))
     print('Normalised correlation:', computedNCC)
 
-    fig, (ax_osc, ax_compareChannel) = plt.subplots(2, 1, sharex=True)
+    fig, (ax_osc, ax_compareChannel) = plt.subplots(2, 1, sharex=False)
     ax_osc.plot(oscData)
     #ax_osc.set_title('Oscilloscope data')
     ax_osc.set_xlabel('Sample')
@@ -175,11 +197,52 @@ def normCorrWithOscilloscope(oscilloscopeCSV, compareChDir):
     fig.tight_layout()
     plt.show()
 
+def fftData(channelDataDir):
+    #Setup ideal sine wave form of same frequency with FFT
+    sampleRate = 8000
+    period = 1/8000
+    t = 3.0 #100ms duration
+    noOfSamples = sampleRate*t
+    print(noOfSamples)
+    frequency = 1000 #known frequency for testing
+    omega = 2*np.pi*frequency
+    t_sequence = np.arange(noOfSamples)*period
+    print(t_sequence)
+    y = 1.65*np.sin(omega*t_sequence)+1.65
+
+    yf = fft(y)
+    xf = fftfreq(int(noOfSamples), 1/int(sampleRate))
+
+    #plt.plot(xf, np.abs(yf))
+    plt.show()
+
+    # Acquire channel data
+    firstChannel = fpgaFileHandler.interpretAsAnalogCSV(channelDataDir)
+    #Convert the ADC format to voltage level
+
+    voltages = [float(entry)*(3.3/4096) for entry in firstChannel[2]]
+    vf = fft(voltages)
+
+    fig, (ax_ideal, ax_compareChannel) = plt.subplots(2, 1, sharex=True)
+    #fig, ax_ideal = plt.subplots(1, 1, sharex=True)
+    ax_ideal.plot(xf, np.abs(yf))
+    ax_ideal.set_title('Ideal sine wave FFT')
+    ax_ideal.set_xlabel('Frequency')
+    ax_ideal.set_ylabel('FFT')
+
+    ax_compareChannel.plot(xf, np.abs(vf))
+    ax_compareChannel.set_title('Channel data FFT')
+    ax_compareChannel.set_xlabel('Frequency')
+    ax_compareChannel.set_ylabel('FFT')
+
+    plt.show()
+
+
 if __name__ == '__main__':
     # Test correlation between different signals:
-    dir1 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz.csv'
-    dir2 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch3_ir_40khz.csv'
-    dir3 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch2_ir_36khz.csv'
+    dir1 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz_2m.csv'
+    dir2 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch3_ir_40khz_2m.csv'
+    dir3 = '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch2_ir_36khz_2m.csv'
     print('38kHz and 40kHz:')
     determineCorrelation(dir1, dir2)
     print('38kHz and 36kHz:')
@@ -189,6 +252,9 @@ if __name__ == '__main__':
     #Test correlation with oscilloscope:
     oscilloscopeDir = '/home/keenanrob/Documents/EEE4022F/Result_resources/final_ir.csv'
     print('Oscilloscope vs 38khz:')
-    normCorrWithOscilloscope(oscilloscopeDir, '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz.csv')
+    normCorrWithOscilloscope(oscilloscopeDir, '/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_ir_38khz_2m.csv')
+    #Show the IR channels
+    irComparisonGraphs(dir3, dir1, dir2)
     # Test the envelope detector:
     #digitalEnvelopeDetector(dir1)
+    #fftData('/home/keenanrob/Documents/EEE4022F/channelCSVData/ch1_audio_8khz_3s.csv')

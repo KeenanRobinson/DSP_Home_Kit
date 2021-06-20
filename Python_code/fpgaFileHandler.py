@@ -100,7 +100,7 @@ def interpretAsDigitalCSV(filenameIn):
             else:
                 binaryEntry = "{:0>16}".format(bin(int(entry[0]))[2:]) #Reformats to binary string
                 for i in range (16):
-                    dataList.append(binaryEntry[i])
+                    dataList.append(int(binaryEntry[i]))
                     timeList.append(sampleTime)
                     sampleTime = sampleTime+(1/(float(channelInfo[1]))) #Calculate the next time interval
             entryCount = entryCount+1
@@ -128,10 +128,12 @@ def interpretAsAnalogCSV(filenameIn):
             elif entryCount == 2:
                 channelInfo.append(int(entry[0])) #This is the channel
             else:
-                binaryEntry = "{:0>16}".format(bin(int(entry[0]))[2:]) #Reformats to binary string
-                dataList.append(binaryEntry)
-                timeList.append(sampleTime)
+                #binaryEntry = "{:0>16}".format(bin(int(entry[0]))[2:]) #Reformats to binary string
+                #dataList.append(binaryEntry)
+                dataList.append(int(entry[0]))
+                timeList.append(float(sampleTime))
                 sampleTime = sampleTime+(1/(float(channelInfo[1]))) #Calculate the next time interval
+                print(sampleTime)
 
             entryCount = entryCount+1
             #print(entryCount)
