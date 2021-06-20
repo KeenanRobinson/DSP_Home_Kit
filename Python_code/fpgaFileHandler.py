@@ -172,8 +172,13 @@ def bitErrorTest(fileDir): #Performs an bit-error test to evaluate accuracy.
 
     for i in range(len(testValues)): #For loop through the different data entries, comparing each 16-bit word
         if compareValue != testValues[i]:
-            numberOfErrors = numberOfErrors+1
-            print(testValues[i])
+            #Convert the number to a binary value in a string format
+            binaryTestValue = "{:0>16}".format(bin(int(testValues[i]))[2:])
+            binaryCompareValue = "{:0>16}".format(bin(int(compareValue))[2:])
+            #Check each bit for errors, recording the number of bits that are not equal
+            for j in range(len(binaryTestValue)):
+                if binaryTestValue[j] != binaryCompareValue[j]:
+                    numberOfErrors = numberOfErrors+1
         compareValue = compareValue+1
         if(compareValue == 65536): #if the compare value has a bit width greater than 16, return to 0
             compareValue=0
@@ -183,5 +188,5 @@ def bitErrorTest(fileDir): #Performs an bit-error test to evaluate accuracy.
 if __name__ == '__main__':
     #array = interpretAsDigitalCSV(defaultFileName)
     #print(array)
-    dir1 = '/home/keenanrob/Documents/EEE4022F/Result_resources/Bit_error_tests/100000_samples.csv'
+    dir1 = '/home/keenanrob/Documents/EEE4022F/Result_resources/Bit_error_tests/1000000_samples.csv'
     print('Number of errors: ',bitErrorTest(dir1))
